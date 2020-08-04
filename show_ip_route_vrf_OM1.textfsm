@@ -1,0 +1,9 @@
+Value protocol (\w)
+Value network (\S+)
+Value AD (.*)
+Value nexthop (.+)
+Value time (.*)
+Value interface (.*)
+
+Start
+ ^${protocol}\s+${network} is ${nexthop}, ${interface} -> Record

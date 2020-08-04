@@ -1,0 +1,11 @@
+Value Filldown category (.+)
+Value network (\S+)
+Value next_hop (\S+)
+Value metric (\S+)
+Value locprf (\s+)
+Value weight (\d+)
+Value path (.*)
+
+Start
+ ^show ip bgp neighbors ${category}routes
+ ^[:*:][:>:]${network}\s+${next_hop}\s+${metric}${locprf}${weight} ${path} -> Record

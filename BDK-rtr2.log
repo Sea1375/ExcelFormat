@@ -1,0 +1,267 @@
+cr03#show ip bgp summary
+cr03#show ip bgp vpnv4 all summary
+BGP router identifier 192.168.233.3, local AS number 64513
+BGP table version is 1252, main routing table version 1252
+490 network entries using 82320 bytes of memory
+981 path entries using 62784 bytes of memory
+158/95 BGP path/bestpath attribute entries using 22752 bytes of memory
+1 BGP AS-PATH entries using 24 bytes of memory
+17 BGP community entries using 408 bytes of memory
+113 BGP extended community entries using 4344 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 172632 total bytes of memory
+84 received paths for inbound soft reconfiguration
+BGP activity 589/62 prefixes, 1189/144 paths, scan interval 60 secs
+
+Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+10.254.9.14     4        64512    4312    4302     1252    0    0 06:05:15       14
+10.254.9.26     4        64512    4293    4290     1252    0    0 06:05:26       10
+10.254.9.66     4        64512    4285    4283     1252    0    0 06:05:20        4
+10.254.9.74     4        64512    4318    4307     1252    0    0 06:05:19       21
+10.254.9.98     4        64512    4295    4294     1252    0    0 06:05:26       17
+10.254.9.110    4        64512    4295    4291     1252    0    0 06:05:18        2
+10.254.9.146    4        64512    4286    4283     1252    0    0 06:05:18        8
+10.254.9.154    4        64512    4286    4283     1252    0    0 06:05:18        8
+192.168.233.2   4        64513    4390    4475     1252    0    0 06:05:53      241
+192.168.234.1   4        64513    4385    4474     1252    0    0 06:05:50      191
+192.168.234.2   4        64513    4394    4473     1252    0    0 06:05:46      191
+192.168.240.15  4        64513    1994    1997     1252    0    0 02:45:51        3
+192.168.240.16  4        64513    1997    2000     1252    0    0 02:46:06        3
+
+cr03#show ip route vrf OM
+
+Routing Table: OM
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+      10.0.0.0/8 is variably subnetted, 101 subnets, 7 masks
+B        10.252.13.0/27 [20/0] via 10.254.9.98, 06:04:25
+B        10.252.44.32/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.44.36/30 [200/0] via 192.168.234.2, 06:04:43
+B        10.252.44.81/32 [200/10] via 192.168.234.1, 06:04:43
+B        10.252.44.82/32 [200/10] via 192.168.234.1, 06:04:43
+B        10.252.44.204/30 [200/0] via 192.168.234.1, 06:04:43
+C        10.252.57.32/30 is directly connected, GigabitEthernet3/3.1894
+L        10.252.57.33/32 is directly connected, GigabitEthernet3/3.1894
+O        10.252.57.36/30 
+           [110/15] via 10.252.57.206, 06:05:45, Port-channel1.1458
+O E1     10.252.57.81/32 
+           [110/10] via 10.252.57.34, 04:18:22, GigabitEthernet3/3.1894
+O E1     10.252.57.82/32 
+           [110/10] via 10.252.57.34, 04:18:22, GigabitEthernet3/3.1894
+C        10.252.57.204/30 is directly connected, Port-channel1.1458
+L        10.252.57.205/32 is directly connected, Port-channel1.1458
+C        10.252.118.16/29 is directly connected, GigabitEthernet3/5.1596
+L        10.252.118.19/32 is directly connected, GigabitEthernet3/5.1596
+B        10.252.118.24/29 [200/0] via 192.168.233.2, 06:04:43
+C        10.252.123.24/29 is directly connected, GigabitEthernet3/5.1629
+L        10.252.123.26/32 is directly connected, GigabitEthernet3/5.1629
+B        10.252.143.0/25 [20/0] via 10.254.9.98, 06:04:25
+B        10.252.143.128/27 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.143.160/28 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.143.176/28 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.144.0/26 [20/0] via 10.254.9.98, 06:04:25
+S        10.252.144.128/27 [1/0] via 10.254.9.85
+S        10.252.144.160/28 [1/0] via 10.252.144.189
+C        10.252.144.176/28 is directly connected, Vlan1294
+L        10.252.144.178/32 is directly connected, Vlan1294
+B        10.252.145.0/27 [20/0] via 10.254.9.98, 06:04:25
+B        10.252.147.160/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.168/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.176/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.184/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.192/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.196/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.200/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.252.147.204/30 [200/0] via 192.168.234.1, 06:04:43
+C        10.252.148.160/29 is directly connected, GigabitEthernet3/5.433
+L        10.252.148.162/32 is directly connected, GigabitEthernet3/5.433
+C        10.252.148.168/29 is directly connected, GigabitEthernet3/5.434
+L        10.252.148.170/32 is directly connected, GigabitEthernet3/5.434
+C        10.252.148.176/29 is directly connected, GigabitEthernet3/5.435
+L        10.252.148.178/32 is directly connected, GigabitEthernet3/5.435
+C        10.252.148.184/29 is directly connected, GigabitEthernet3/5.436
+L        10.252.148.186/32 is directly connected, GigabitEthernet3/5.436
+S        10.252.148.192/30 [1/0] via 10.252.148.165
+S        10.252.148.196/30 [1/0] via 10.252.148.173
+S        10.252.148.200/30 [1/0] via 10.252.148.181
+S        10.252.148.204/30 [1/0] via 10.252.148.189
+S        10.252.249.32/27 [1/0] via 10.252.123.28
+S        10.253.0.128/26 [1/0] via 10.253.41.12
+S        10.253.0.192/32 [1/0] via 10.253.41.12
+B        10.253.0.195/32 [200/0] via 192.168.233.2, 06:04:43
+S        10.253.0.196/32 [1/0] via 10.253.41.12
+S        10.253.0.197/32 [1/0] via 10.253.41.12
+C        10.253.1.80/28 is directly connected, Vlan3006
+L        10.253.1.82/32 is directly connected, Vlan3006
+S        10.253.1.128/27 [1/0] via 10.253.1.85
+S        10.253.2.80/32 [1/0] via 10.253.41.12
+S        10.253.2.81/32 [1/0] via 10.253.41.12
+S        10.253.2.88/29 [1/0] via 10.253.41.12
+S        10.253.32.0/27 [1/0] via 10.253.41.12
+S        10.253.33.0/27 [1/0] via 10.253.41.4
+S        10.253.37.0/27 [1/0] via 10.253.41.12
+S        10.253.40.1/32 [1/0] via 10.253.41.12
+S        10.253.40.2/32 [1/0] via 10.253.41.12
+C        10.253.41.0/29 is directly connected, GigabitEthernet3/5.3041
+L        10.253.41.2/32 is directly connected, GigabitEthernet3/5.3041
+C        10.253.41.8/29 is directly connected, GigabitEthernet3/5.3042
+L        10.253.41.10/32 is directly connected, GigabitEthernet3/5.3042
+B        10.253.128.128/26 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.128.192/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.128.195/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.128.196/32 [200/0] via 192.168.234.2, 06:04:43
+B        10.253.128.197/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.129.80/28 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.129.128/27 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.130.80/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.130.81/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.130.88/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.160.0/26 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.160.64/27 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.161.0/27 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.165.0/27 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.170.1/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.170.2/32 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.171.0/29 [200/0] via 192.168.234.1, 06:04:43
+B        10.253.171.8/29 [200/0] via 192.168.234.1, 06:04:43
+C        10.254.9.80/28 is directly connected, Vlan1620
+L        10.254.9.82/32 is directly connected, Vlan1620
+C        10.254.9.96/30 is directly connected, GigabitEthernet3/5.1621
+L        10.254.9.97/32 is directly connected, GigabitEthernet3/5.1621
+B        10.254.9.100/30 [200/0] via 192.168.233.2, 06:04:43
+B        10.254.13.152/30 [20/0] via 10.254.9.98, 06:04:25
+C        10.254.126.32/30 is directly connected, GigabitEthernet3/2.1376
+L        10.254.126.34/32 is directly connected, GigabitEthernet3/2.1376
+B        10.254.126.36/30 [200/0] via 192.168.233.2, 06:04:43
+B        10.254.135.0/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.254.135.4/30 [200/0] via 192.168.234.2, 06:04:43
+B        10.254.136.80/28 [200/0] via 192.168.234.1, 06:04:43
+B        10.254.136.96/30 [200/0] via 192.168.234.1, 06:04:43
+B        10.254.136.100/30 [200/0] via 192.168.234.2, 06:04:43
+      192.168.212.0/24 is variably subnetted, 8 subnets, 2 masks
+B        192.168.212.1/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.2/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.3/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.4/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.8/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.11/32 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.132/30 [20/0] via 10.254.9.98, 06:04:25
+B        192.168.212.196/30 [20/0] via 10.254.9.98, 06:04:25
+      192.168.236.0/32 is subnetted, 2 subnets
+B        192.168.236.246 [200/0] via 192.168.234.1, 06:04:43
+B        192.168.236.249 [200/0] via 192.168.234.1, 06:04:43
+      192.168.252.0/32 is subnetted, 2 subnets
+S        192.168.252.31 [1/0] via 10.254.126.33
+S        192.168.252.32 [1/0] via 10.254.126.33
+
+
+
+show cdp neigh
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+RT55DP11HRTN.dps.com
+                 Tunnel751         178              R I   ASR1001   Tunnel155
+RT55DP11HRTN.dps.com
+                 Tunnel752         134              R I   ASR1001   Tunnel1155
+rt73dp11m5tn.dps.com
+                 Tunnel732         149              R I   ASR1001   Tunnel1155
+rt73dp11m5tn.dps.com
+                 Tunnel731         159              R I   ASR1001   Tunnel155
+
+
+
+show ip bgp neighbors 10.13.64.201 advertised-routes
+
+
+Peer 10.13.64.201 routes for address family IPv4 Unicast:
+BGP table version is 230182, Local Router ID is 10.13.254.20
+Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-valid, >-best
+Path type: i-internal, e-external, c-confed, l-local, a-aggregate, r-redist, I-injected
+Origin codes: i - IGP, e - EGP, ? - incomplete, | - multipath, & - backup
+
+   Network            Next Hop            Metric     LocPrf     Weight Path
+*>e172.20.1.0/24      10.13.64.233       3075072                     0 64704 ?
+*>e172.20.2.0/24      10.13.64.229       1434112                     0 64704 ?
+*>e172.20.3.0/24      10.13.64.229       3075072                     0 64704 ?
+*>e172.20.4.0/24      10.13.64.233      47122688                     0 64704 ?
+*>e172.20.6.0/24      10.13.64.229       3075072                     0 64704 ?
+*>e172.20.7.0/24      10.13.64.229       1536512                     0 64704 ?
+*>e172.20.8.0/24      10.13.64.229       3075072                     0 64704 ?
+*>e172.20.11.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.12.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.14.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.16.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.17.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.18.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.19.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.20.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.21.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.23.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.24.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.28.0/24     10.13.64.229       1434112                     0 64704 ?
+*>e172.20.30.0/24     10.13.64.229       2134016                     0 64704 ?
+*>e172.20.31.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.33.0/24     10.13.64.233      41408512                     0 64704 ?
+*>e172.20.35.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.36.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.37.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.40.0/24     10.13.64.233      41408512                     0 64704 ?
+*>e172.20.42.0/24     10.13.64.229      41408512                     0 64704 ?
+*>e172.20.43.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.44.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.46.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.48.0/24     10.13.64.233      41408512                     0 64704 ?
+*>e172.20.51.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.52.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.53.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.57.0/24     10.13.64.229       2688512                     0 64704 ?
+*>e172.20.58.0/24     10.13.64.229       1920512                     0 64704 ?
+*>e172.20.65.0/24     10.13.64.229      47122688                     0 64704 ?
+
+
+show ip bgp neighbors 191.13.64.201 advertised-routes
+*>e172.20.51.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.52.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.53.0/24     10.13.64.229      47122688                     0 64704 ?
+*>e172.20.57.0/24     10.13.64.229       2688512                     0 64704 ?
+*>e172.20.58.0/24     10.13.64.229       1920512                     0 64704 ?
+*>e172.20.65.0/24     10.13.64.229      47122688                     0 64704 ?
+
+show ip bgp neighbors 10.13.64.229 routes
+
+Peer 10.13.64.201 routes for address family IPv4 Unicast:
+BGP table version is 230182, Local Router ID is 10.13.254.20
+Status: s-suppressed, x-deleted, S-stale, d-dampened, h-history, *-valid, >-best
+Path type: i-internal, e-external, c-confed, l-local, a-aggregate, r-redist, I-injected
+Origin codes: i - IGP, e - EGP, ? - incomplete, | - multipath, & - backup
+
+   Network            Next Hop            Metric     LocPrf     Weight Path
+*>e10.22.5.115/32     10.13.64.201             0                     0 64778 i
+*>e10.23.5.115/32     10.13.64.201                                   0 64778 64779 65100 64780 64768 i
+
+show ip bgp neighbors 191.13.64.201 routes
+*>e172.20.19.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.20.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.21.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.23.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.24.0/24     10.13.64.233       3075072                     0 64704 ?
+*>e172.20.28.0/24     10.13.64.229       1434112                     0 64704 ?
+*>e172.20.30.0/24     10.13.64.229       2134016                     0 64704 ?
+*>e172.20.31.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.33.0/24     10.13.64.233      41408512                     0 64704 ?
+*>e172.20.35.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.36.0/24     10.13.64.229       3075072                     0 64704 ?
+*>e172.20.37.0/24     10.13.64.229      47122688                     0 64704 ?

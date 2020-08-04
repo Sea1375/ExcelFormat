@@ -1,0 +1,10 @@
+Value protocol (\w(\s\w+)*)
+Value network (\S+)
+Value AD (\S+)
+Value nexthop (\S+)
+Value time (\S+)
+Value interface (.*)
+
+Start
+ ^${protocol}\s+${network}\s\Z
+ ^\s+${AD} via ${nexthop}, ${time}, ${interface} -> Record

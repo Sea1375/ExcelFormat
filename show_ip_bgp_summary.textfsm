@@ -1,0 +1,7 @@
+Value neighbor (\S+)
+Value as (\S+)
+Value updown (\S+)
+Value state (\S+)
+
+Start
+ ^${neighbor}\s+\d+\s+${as}\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+${updown}\s+${state} -> Record

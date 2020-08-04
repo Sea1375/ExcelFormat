@@ -1,0 +1,10 @@
+Value device_id (\S+)
+Value local_intrfce (\S+)
+Value holdtme (\d+)
+Value capability_platform (\w\s\w)
+Value platform (\S+)
+Value port_id (\S+)
+
+Start
+ ^${device_id}\Z
+ ^\s+${local_intrfce}\s+${holdtme}\s+${capability_platform}\s+${platform}\s+${port_id} -> Record
